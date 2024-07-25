@@ -144,7 +144,7 @@ def main():
       continue
 
     if not transform_set:
-      from_intr = _os_fisheye.intrinsics if buf.width > 2000 else _ar_ox_fisheye.intrinsics
+      from_intr = _os_fisheye.intrinsics if buf.width < 1500 else _ar_ox_fisheye.intrinsics
       model_transform = np.linalg.inv(np.dot(INPUT_INTRINICS, np.linalg.inv(from_intr))).astype(np.float32)
       transform_set = True
 
